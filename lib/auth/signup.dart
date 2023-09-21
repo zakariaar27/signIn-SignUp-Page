@@ -73,9 +73,15 @@ class SignUp extends StatelessWidget {
               hinttext: 'Re-Password',
             ),
           ),
+          SizedBox(
+            height: 20,
+          ),
           ElevatedButton(
             onPressed: () {},
-            child: Text('Sign Up'),
+            child: Text(
+              'Sign Up',
+              style: TextStyle(color: Colors.white),
+            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Color.fromRGBO(39, 97, 255, 1),
             ),
@@ -83,7 +89,7 @@ class SignUp extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Don't Have Account?"),
+              Text("You Already Have An Account."),
               TextButton(
                   onPressed: () {
                     Navigator.push(
