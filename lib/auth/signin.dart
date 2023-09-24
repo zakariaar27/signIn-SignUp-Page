@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prac_five/auth/signup.dart';
 import 'package:prac_five/const/image_path.dart';
+import 'package:prac_five/screen/navbar.dart';
 import 'package:prac_five/utiliz/colors.dart';
 import 'package:prac_five/utiliz/height_weight.dart';
 import 'package:prac_five/widget/text.dart';
@@ -48,6 +49,7 @@ class _LogInState extends State<LogIn> {
                     left: 20, right: 20, top: 20, bottom: 5),
                 child: KTextFromField(
                   hinttext: 'Username or Email',
+                  prefixIcon: Icon(Icons.person),
                 ),
               ),
               Padding(
@@ -56,6 +58,7 @@ class _LogInState extends State<LogIn> {
                 child: KTextFromField(
                   iconData: Icons.lock,
                   isPass: isPass,
+                  prefixIcon: Icon(Icons.lock),
                   suffixIcon: GestureDetector(
                     onTap: () {
                       isPass = !isPass;
@@ -86,7 +89,10 @@ class _LogInState extends State<LogIn> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  fromKey.currentState?.validate();
+                  // fromKey.currentState?.validate();
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (context) => NavBar(),
+                  ));
                 },
                 child: Text(
                   'Sign In',

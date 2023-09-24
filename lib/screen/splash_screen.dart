@@ -39,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(KImage.main,
                 height: KAppSize.getHeight(context: context, size: 15),
-                width: KAppSize.getWidth(context: context, size: 28),
+                width: KAppSize.getWidth(context: context, size: 40),
                 fit: BoxFit.cover),
             SizedBox(
               height: KAppSize.getHeight(context: context, size: 5),

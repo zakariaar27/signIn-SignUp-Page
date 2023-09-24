@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 
 class KTextFromField extends StatelessWidget {
-  const KTextFromField(
-      {super.key,
-      this.isPass = false,
-      this.iconData,
-      this.hinttext,
-      this.suffixIcon});
+  const KTextFromField({
+    super.key,
+    this.isPass = false,
+    this.iconData,
+    this.hinttext,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.readOnly = false,
+    this.fillcolor = const Color(0xFFFFFFFF),
+  });
   final bool isPass;
   final String? hinttext;
   final IconData? iconData;
   final dynamic suffixIcon;
+  final dynamic prefixIcon;
+  final bool readOnly;
+  final Color fillcolor;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: readOnly,
       obscureText: isPass,
       validator: (value) {
         if (value == "" || value == null) {
@@ -24,7 +32,9 @@ class KTextFromField extends StatelessWidget {
       },
       decoration: InputDecoration(
         hintText: hinttext,
-        prefixIcon: iconData == null ? Icon(Icons.person) : Icon(iconData),
+        fillColor: fillcolor,
+        filled: true,
+        prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(40),

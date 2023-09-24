@@ -7,8 +7,16 @@ import 'package:prac_five/utiliz/height_weight.dart';
 import 'package:prac_five/widget/text.dart';
 import 'package:prac_five/widget/textfromfield.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  bool isPass = true;
+  bool isPassRe = true;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +42,7 @@ class SignUp extends StatelessWidget {
             ),
             child: KTextFromField(
               iconData: Icons.person,
+              prefixIcon: Icon(Icons.person),
               hinttext: 'Name',
             ),
           ),
@@ -45,6 +54,7 @@ class SignUp extends StatelessWidget {
               bottom: 5,
             ),
             child: KTextFromField(
+              prefixIcon: Icon(Icons.email),
               iconData: Icons.email,
               hinttext: 'Email',
             ),
@@ -57,8 +67,18 @@ class SignUp extends StatelessWidget {
               bottom: 5,
             ),
             child: KTextFromField(
-              iconData: Icons.lock,
+              prefixIcon: Icon(Icons.lock),
               hinttext: 'Password',
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  isPass = !isPass;
+                  print(isPass);
+                  setState(() {});
+                },
+                child: isPass == false
+                    ? Icon(Icons.visibility)
+                    : Icon(Icons.visibility_off),
+              ),
             ),
           ),
           Padding(
@@ -69,8 +89,18 @@ class SignUp extends StatelessWidget {
               bottom: 5,
             ),
             child: KTextFromField(
-              iconData: Icons.lock,
+              prefixIcon: Icon(Icons.lock),
               hinttext: 'Re-Password',
+              suffixIcon: GestureDetector(
+                onTap: () {
+                  isPassRe = !isPassRe;
+                  print(isPass);
+                  setState(() {});
+                },
+                child: isPass == false
+                    ? Icon(Icons.visibility)
+                    : Icon(Icons.visibility_off),
+              ),
             ),
           ),
           SizedBox(
